@@ -270,6 +270,9 @@ async function main() {
       assert.match(text, /Rice Pudding/);
       assert.match(text, /Quick ideas/);
       assert.match(text, /Meadow Farm/);
+      const online = page.getByRole('link', { name: 'More recipes online' });
+      assert.equal(await online.getAttribute('href'), 'https://www.google.com/search?q=recipes%20using%20Semi-Skimmed%20Milk');
+      assert.equal(await online.getAttribute('target'), '_blank');
       await shot('item');
     });
 

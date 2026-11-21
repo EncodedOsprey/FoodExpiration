@@ -3,7 +3,7 @@ import { attentionList, buildSchedule } from '../alerts.js';
 import { formatDate, toISODate } from '../dates.js';
 import { kvGet } from '../kv.js';
 import { back } from '../nav.js';
-import { suggestionsFor } from '../recipes.js';
+import { suggestionsFor, webRecipeSearchUrl } from '../recipes.js';
 import { getSettings } from '../settings.js';
 import { allItems, deleteItem, findItem, setStatus } from '../store.js';
 import { $, choose, expiryPill, html, icon, locationName, mount, setHeader, thumb, toast } from '../ui.js';
@@ -34,7 +34,7 @@ function recipesMarkup(item, { builtin, online }, settings) {
     ideas.push(html`<p class="hint">Connect to the internet for more recipe ideas.</p>`);
   }
   if (!builtin.length && !online?.length) {
-    ideas.push(html`<p class="hint">No recipe ideas for this yet. Try setting its main ingredient (Edit → More details).</p>`);
+    ideas.push(html`<p class="hint">No recipe ideas here yet. Search online below, or set its main ingredient (Edit → More details).</p>`);
   }
   return ideas;
 }
@@ -89,6 +89,7 @@ export function render(el, { params, signal }) {
       </div>
       <h2>Recipes to use it up</h2>
       <div id="recipes"><div class="recipes scroller">${skeletons(3)}</div></div>
+      <a class="btn block" href="${webRecipeSearchUrl(item)}" target="_blank" rel="noopener noreferrer">${icon('search')} More recipes online</a>
       <button class="btn block ghost danger" type="button" data-act="delete">${icon('trash')} Delete (added by mistake)</button>`,
   );
 

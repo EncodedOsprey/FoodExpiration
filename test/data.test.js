@@ -5,7 +5,7 @@ import { DEFAULT_ALERT_SETTINGS, buildSchedule } from '../app/js/alerts.js';
 import { kvGet, kvSet } from '../app/js/kv.js';
 import { claimDue } from '../app/js/notify-core.js';
 import { lookupProduct, rememberProduct } from '../app/js/products.js';
-import { getRecipe, suggestionsFor, useItUpIdeas } from '../app/js/recipes.js';
+import { builtInFor, getRecipe, suggestionsFor, useItUpIdeas } from '../app/js/recipes.js';
 
 let routes;
 let calls;
@@ -88,6 +88,25 @@ test('suggests online recipes, ranking ones that use other expiring items first'
   assert.equal((await suggestionsFor(milk, [milk])).online.length, 2);
   const cheese = { id: 'c', name: 'Brie', typeId: 'soft-cheese', ingredient: 'Brie', status: 'active', expiryDate: soon };
   assert.equal((await suggestionsFor(cheese, [cheese])).online, null);
+});
+
+test('has built-in recipes for packaged foods, matched on the food rather than its flavour', () => {
+  const quick = (name, typeId) =>
+    builtInFor({ id: 'x', name, typeId, ingredient: '', status: 'active' }).filter((r) => r.core).map((r) => r.name);
+  const packaged = [
+    ['Granola Bites', 'snack-bars'],
+    ['Corn Flakes', 'cereal'],
+    ['Tortilla Chips', 'chips'],
+    ['Mixed Nuts', 'nuts'],
+    ['Dark Chocolate', 'sweets'],
+    ['Peanut Butter', 'nut-butter'],
+    ['Strawberry Jam', 'jam'],
+    ['Marinara', 'pasta-sauce'],
+    ['Hummus', 'dips'],
+  ];
+  for (const [name, typeId] of packaged) assert.ok(quick(name, typeId).length >= 2, name);
+  assert.ok(quick('Honey Nut Cheerios', 'cereal').length >= 2);
+  assert.ok(!quick('Honey Nut Cheerios', 'cereal').includes('Honey-roasted spiced nuts'));
 });
 
 test('normalises TheMealDB recipes', async () => {

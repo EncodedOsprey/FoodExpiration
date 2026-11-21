@@ -231,7 +231,7 @@ export const RECIPES = [
     'Add the tomatoes, beans and ½ cup water and simmer 25–30 minutes until thick.',
     'Season and serve with rice or tortilla chips and the toppings.',
   ]),
-  r('meatballs', 'Meatballs in tomato sauce', '🍝', 40, ['t:ground-meat', 't:sausage', 't:tomatoes', 't:bread'], [
+  r('meatballs', 'Meatballs in tomato sauce', '🍝', 40, ['t:ground-meat', 't:sausage', 't:tomatoes', 't:bread', 't:pasta-sauce'], [
     '500 g (1 lb) ground meat',
     '½ cup breadcrumbs (or 1 slice bread soaked in milk)',
     '1 egg and ¼ cup grated parmesan',
@@ -346,7 +346,7 @@ export const RECIPES = [
     'Blend everything until smooth and frothy.',
     'Pour into a cold glass and serve straight away.',
   ]),
-  r('yogurt-parfait', 'Yogurt parfait', '🍨', 5, ['t:yogurt', 't:berries', 't:fruit', 't:banana', 't:apples', 'granola'], [
+  r('yogurt-parfait', 'Yogurt parfait', '🍨', 5, ['t:yogurt', 't:berries', 't:fruit', 't:banana', 't:apples', 'granola', 't:cereal', 't:snack-bars'], [
     '1 cup yogurt',
     '1 cup fruit (berries, chopped peaches, banana, apple…)',
     '¼ cup granola or toasted oats',
@@ -528,7 +528,7 @@ export const RECIPES = [
     'Mix with the yogurt, garlic, oil, herbs and lemon; season and chill.',
     'Serve with grilled meat, pita or vegetables.',
   ]),
-  r('herb-dip', 'Herby sour cream dip', '🥣', 5, ['t:sour-cream', 't:cream-cheese', 't:dips', 't:scallions', 'chives', 'dill'], [
+  r('herb-dip', 'Herby sour cream dip', '🥣', 5, ['t:sour-cream', 't:cream-cheese', 't:dips', 't:scallions', 'chives', 'dill', 't:chips'], [
     '1 cup sour cream, yogurt or softened cream cheese',
     '2 tbsp chopped chives, dill, parsley or spring onions',
     '1 small clove garlic, grated',
@@ -549,6 +549,269 @@ export const RECIPES = [
     'Mix with the egg, flour, cheese, spring onions and pepper.',
     'Fry spoonfuls in a little oil over medium heat for 3 minutes per side until golden.',
     'Serve with yogurt or tzatziki.',
+  ]),
+  // Packaged foods: cereal, snack bars, chips, nuts, sweets, spreads and sauces.
+  r('yogurt-bark', 'Frozen yogurt bark', '🍧', 10, ['t:snack-bars', 't:cereal', 'granola', 't:yogurt', 't:berries', 't:fruit', 't:banana', 't:nuts'], [
+    '2 cups (500 g) thick yogurt, such as Greek',
+    '2 tbsp honey or maple syrup',
+    '1 cup crumbled granola bites, granola bars or cereal',
+    '½ cup berries or chopped fruit',
+    'Optional: chopped nuts or chocolate chips',
+  ], [
+    'Line a baking tray with baking paper.',
+    'Stir the honey into the yogurt and spread it about 1 cm (½ in) thick on the tray.',
+    'Scatter over the granola, fruit and any nuts or chocolate, pressing them in lightly.',
+    'Freeze at least 2 hours, then break into pieces. Keep them in the freezer.',
+  ]),
+  r('baked-apples', 'Baked apples with granola crumble', '🍎', 35, ['t:snack-bars', 't:cereal', 'granola', 't:apples', 't:fruit', 't:nuts', 't:butter'], [
+    '4 apples or pears',
+    '1 cup crumbled granola bites, granola bars or granola',
+    '2 tbsp butter, melted',
+    '1 tbsp brown sugar or honey and ½ tsp cinnamon',
+    'Yogurt or ice cream to serve',
+  ], [
+    'Heat the oven to 190 °C / 375 °F.',
+    'Halve the apples and scoop out the cores to make a hollow. Put them cut side up in a baking dish.',
+    'Mix the granola with the butter, sugar and cinnamon and pile it into the hollows.',
+    'Add a splash of water to the dish and bake 25–30 minutes, until soft. Serve with yogurt or ice cream.',
+  ]),
+  r('cereal-bars', 'No-bake cereal bars', '🌾', 15, ['t:cereal', 't:nut-butter', 't:snack-bars', 'honey', 't:nuts', 't:sweets', 'raisins', 'dried fruit'], [
+    '3 cups (about 100 g) cereal, granola or crushed granola bars',
+    '½ cup (130 g) peanut butter or another nut butter',
+    '⅓ cup (110 g) honey or syrup',
+    '½ cup add-ins: raisins, chopped nuts, chocolate chips',
+    'A pinch of salt',
+  ], [
+    'Line a small square pan with baking paper.',
+    'Warm the nut butter, honey and salt in a pan over low heat, stirring, until smooth.',
+    'Take off the heat and stir in the cereal and add-ins until coated.',
+    'Press firmly into the pan, chill 1 hour until set, then cut into bars.',
+  ]),
+  r('energy-bites', 'No-bake energy bites', '🍪', 10, ['t:nut-butter', 'oats', 'granola', 't:snack-bars', 't:cereal', 'honey', 't:sweets', 't:nuts', 'raisins'], [
+    '1 cup (90 g) rolled oats or crushed granola',
+    '½ cup (130 g) peanut butter or another nut butter',
+    '⅓ cup (110 g) honey',
+    '¼ cup chocolate chips, raisins or chopped nuts',
+    '1 tsp vanilla (optional)',
+  ], [
+    'Stir everything together in a bowl until it holds together.',
+    'Chill 20 minutes so it is easier to shape.',
+    'Roll into walnut-sized balls. Keep in the fridge for up to a week.',
+  ]),
+  r('trail-mix', 'Homemade trail mix', '🥜', 5, ['t:nuts', 't:cereal', 't:snack-bars', 't:sweets', 't:chips', 'granola', 'raisins', 'dried fruit'], [
+    '1 cup nuts or seeds',
+    '1 cup cereal, granola or broken-up granola bars',
+    '½ cup raisins or chopped dried fruit',
+    '½ cup pretzels or popcorn',
+    '¼ cup chocolate chips or candy',
+  ], [
+    'Toss everything together in a big bowl.',
+    'Taste and balance it: more nuts for crunch, more fruit or chocolate for sweetness.',
+    'Store in an airtight jar for up to 2 weeks and bag up handfuls for snacks on the go.',
+  ]),
+  r('spiced-nuts', 'Honey-roasted spiced nuts', '🥜', 20, ['t:nuts', 'honey'], [
+    '2 cups (about 250 g) nuts',
+    '2 tbsp honey or maple syrup',
+    '1 tbsp butter or oil, melted',
+    '½ tsp salt and ½ tsp cinnamon or smoked paprika',
+  ], [
+    'Heat the oven to 180 °C / 350 °F and line a tray with baking paper.',
+    'Toss the nuts with the honey, butter, salt and spice.',
+    'Spread out and roast 10–12 minutes, stirring halfway, until golden.',
+    'Cool on the tray (they crisp up as they cool), then break apart.',
+  ]),
+  r('crunchy-chicken', 'Crunchy-coated chicken strips', '🍗', 30, ['t:chips', 't:cereal', 't:poultry', 't:snacks', 't:eggs'], [
+    '2 cups crushed chips, crackers, pretzels or unsweetened cereal such as cornflakes',
+    '500 g (1 lb) chicken breast, cut into strips',
+    '1 egg, beaten with 1 tbsp milk or water',
+    '¼ cup (30 g) flour',
+    'Salt, pepper and paprika',
+  ], [
+    'Heat the oven to 220 °C / 425 °F and oil a baking tray.',
+    'Crush the chips or cereal in a bag with a rolling pin until like coarse breadcrumbs.',
+    'Season the flour. Dip each strip in flour, then egg, then the crumbs, pressing them on.',
+    'Bake 15–20 minutes, turning once, until golden and cooked through.',
+  ]),
+  r('nachos', 'Sheet-pan nachos', '🧀', 20, ['t:chips', 'salsa', 't:cheese', ...BEANS, 't:ground-meat', 't:leftovers', 't:sour-cream', 't:avocado', 't:scallions', 'jalapeno'], [
+    '1 large bag (about 250 g) tortilla chips',
+    '2 cups (200 g) grated cheese',
+    '1 can beans, drained, or 1–2 cups cooked meat',
+    '1 cup salsa',
+    'Toppings: sour cream, avocado, sliced spring onions, jalapeños',
+  ], [
+    'Heat the oven to 200 °C / 400 °F.',
+    'Spread the chips on a large baking tray. Scatter over the beans or meat, then the cheese.',
+    'Bake 6–8 minutes, until the cheese has melted.',
+    'Spoon over the salsa and toppings and eat straight away.',
+  ]),
+  r('chilaquiles', 'Chilaquiles', '🍳', 20, ['t:chips', 'salsa', 't:eggs', 't:cheese', 't:soft-cheese', 't:sour-cream', 't:avocado', 'cilantro'], [
+    '1½ cups salsa or tomato sauce',
+    '½ cup (120 ml) water or broth',
+    '4 big handfuls tortilla chips (stale ones are fine)',
+    '2–4 eggs',
+    'Crumbled or grated cheese, sour cream and avocado to serve',
+  ], [
+    'Simmer the salsa and water in a large frying pan for 2–3 minutes.',
+    'Add the chips and toss for 1–2 minutes, until coated and just softening.',
+    'Meanwhile, fry the eggs in another pan.',
+    'Top the chips with the eggs, cheese, sour cream and avocado.',
+  ]),
+  r('salsa-chicken', 'Salsa chicken', '🌶️', 30, ['salsa', 't:poultry', 't:cheese', 't:tortillas', 't:sour-cream', 't:avocado'], [
+    '500 g (1 lb) chicken breasts or thighs',
+    '1 cup salsa',
+    '½ cup (50 g) grated cheese',
+    'Tortillas or rice, sour cream and avocado to serve',
+  ], [
+    'Heat the oven to 200 °C / 400 °F.',
+    'Put the chicken in a baking dish, season, and pour over the salsa.',
+    'Bake 20–25 minutes until cooked through, scatter over the cheese and bake 3 minutes more.',
+    'Shred or slice, and serve in tortillas or over rice with sour cream and avocado.',
+  ]),
+  r('hummus-pasta', 'Creamy hummus pasta', '🍝', 15, ['hummus', 'houmous', 't:pasta', 't:greens', 't:tomatoes', 'lemon'], [
+    '225 g (8 oz) pasta',
+    '½ cup (120 g) hummus',
+    'Juice of ½ lemon',
+    '2 handfuls spinach or other greens, or halved cherry tomatoes',
+    'Chili flakes and black pepper',
+  ], [
+    'Cook the pasta. Before draining, scoop out a mug of the cooking water.',
+    'Add the greens to the pot for the last minute, then drain.',
+    'Stir the hummus and lemon juice with a few splashes of the pasta water into a smooth sauce.',
+    'Toss with the pasta and season with chili flakes and pepper.',
+  ]),
+  r('hummus-wraps', 'Hummus veggie wraps', '🌯', 10, ['hummus', 'houmous', 't:tortillas', 't:cucumber', 't:peppers', 't:salad', 'carrot', 'feta', 't:leftovers'], [
+    '2 large tortillas or flatbreads',
+    '4 tbsp hummus',
+    'A handful of lettuce or spinach',
+    'Sliced cucumber and peppers, grated carrot',
+    'Optional: feta, leftover chicken or falafel',
+  ], [
+    'Spread each tortilla thickly with hummus, leaving a border.',
+    'Pile the vegetables and extras down the middle.',
+    'Fold in the sides, roll up tightly and cut in half.',
+  ]),
+  r('peanut-noodles', 'Peanut noodles', '🥜', 20, ['t:nut-butter', 't:pasta', 't:cucumber', 't:scallions', 't:green-veg', 't:peppers', 'carrot', 't:poultry', 't:tofu'], [
+    '225 g (8 oz) noodles or spaghetti',
+    '⅓ cup (85 g) peanut butter',
+    '3 tbsp soy sauce',
+    '1 tbsp vinegar or lime juice and 1 tsp honey',
+    '1 clove garlic, grated (optional)',
+    'Vegetables: cucumber, carrot, spring onions, peppers',
+  ], [
+    'Cook the noodles, then rinse under cold water and drain (or keep them warm).',
+    'Whisk the peanut butter, soy sauce, vinegar, honey and garlic with 3–4 tbsp hot water until smooth.',
+    'Toss the noodles with the sauce and thinly sliced vegetables.',
+    'Add leftover chicken or tofu for a full meal. Serve warm or cold.',
+  ]),
+  r('pb-banana-toast', 'Peanut butter banana toast', '🍌', 5, ['t:nut-butter', 't:banana', 't:bread', 'honey', 't:jam'], [
+    '2 slices bread',
+    '2 tbsp peanut butter or another nut butter',
+    '1 banana, sliced',
+    'A drizzle of honey and a pinch of cinnamon',
+  ], [
+    'Toast the bread.',
+    'Spread with the nut butter and top with the banana.',
+    'Finish with honey and cinnamon, or swap the banana for jam.',
+  ]),
+  r('jam-thumbprints', 'Jam thumbprint cookies', '🍪', 30, ['t:jam', 't:butter'], [
+    '½ cup (115 g) butter, softened',
+    '⅓ cup (65 g) sugar',
+    '1 egg yolk and 1 tsp vanilla',
+    '1¼ cups (160 g) flour and a pinch of salt',
+    '⅓ cup jam',
+  ], [
+    'Heat the oven to 180 °C / 350 °F and line a baking tray.',
+    'Beat the butter and sugar until creamy, beat in the yolk and vanilla, then mix in the flour and salt.',
+    'Roll into 20 small balls, put them on the tray and press a dip into each with your thumb.',
+    'Fill each dip with jam and bake 12–14 minutes, until just golden at the edges.',
+  ]),
+  r('jam-crumble-bars', 'Jam crumble bars', '🍓', 45, ['t:jam', 'oats', 't:butter'], [
+    '1 cup (90 g) rolled oats',
+    '1 cup (125 g) flour',
+    '½ cup (100 g) brown sugar and a pinch of salt',
+    '½ cup (115 g) butter, melted',
+    '¾ cup jam',
+  ], [
+    'Heat the oven to 180 °C / 350 °F and line a 20 cm (8 in) square pan.',
+    'Mix the oats, flour, sugar and salt, then stir in the butter until crumbly.',
+    'Press two-thirds into the pan, spread with the jam and scatter the rest on top.',
+    'Bake 30–35 minutes, until golden. Cool completely before cutting.',
+  ]),
+  r('jam-vinaigrette', 'Jam jar vinaigrette', '🥗', 5, ['t:jam', 't:salad', 't:greens', 'mustard'], [
+    'The last spoonful or two of jam, left in the jar',
+    '3 tbsp olive oil',
+    '1 tbsp vinegar or lemon juice',
+    '½ tsp mustard',
+    'Salt and pepper',
+  ], [
+    'Add the oil, vinegar, mustard, salt and pepper to the nearly empty jam jar.',
+    'Put the lid on and shake hard until it thickens.',
+    'Taste, adjust and pour over salad or greens. It keeps a week in the fridge.',
+  ]),
+  r('shakshuka', 'Shakshuka', '🍳', 25, ['t:pasta-sauce', 't:eggs', 't:peppers', 't:onions', 'salsa', 't:tomatoes', 'feta', 't:herbs'], [
+    '2 cups (500 ml) pasta sauce, salsa or canned tomatoes',
+    '1 pepper and 1 onion, sliced (optional)',
+    '1 tsp cumin and ½ tsp paprika',
+    '4 eggs',
+    'Feta, herbs and bread to serve',
+  ], [
+    'Soften the pepper and onion in a little oil in a frying pan, 5 minutes.',
+    'Add the spices and sauce and simmer 5 minutes, until slightly thickened.',
+    'Make 4 dips in the sauce, crack in the eggs, cover and cook 6–8 minutes, until the whites are set.',
+    'Scatter with feta and herbs and serve with bread.',
+  ]),
+  r('pasta-bake', 'Cheesy pasta bake', '🍝', 40, ['t:pasta-sauce', 't:pasta', 't:soft-cheese', 't:cheese', 't:ground-meat', 't:sausage', 't:greens', 't:mushrooms', 't:leftovers'], [
+    '340 g (12 oz) short pasta',
+    '1 jar (about 680 g / 24 oz) pasta sauce',
+    '1 cup ricotta or cottage cheese (optional)',
+    '2 cups (200 g) grated mozzarella or other cheese',
+    'Optional: cooked sausage or mince, spinach, mushrooms',
+  ], [
+    'Heat the oven to 200 °C / 400 °F. Cook the pasta 2 minutes less than the packet says and drain.',
+    'Stir in the sauce, the ricotta and any extras.',
+    'Tip into a baking dish and cover with the grated cheese.',
+    'Bake 20 minutes, until bubbling and golden.',
+  ]),
+  r('pizza-toast', 'Pizza toast', '🍕', 10, ['t:pasta-sauce', 't:bread', 't:soft-cheese', 't:cheese', 't:deli', 't:peppers', 't:mushrooms', 'pepperoni'], [
+    '4 slices bread, bagels or English muffins',
+    '4 tbsp pasta or pizza sauce',
+    '1 cup (100 g) grated mozzarella or other cheese',
+    'Toppings: pepperoni, ham, peppers, mushrooms, olives',
+  ], [
+    'Heat the grill (broiler) or the oven to 220 °C / 425 °F.',
+    'Toast the bread lightly, then spread with the sauce.',
+    'Add the cheese and toppings and grill 3–5 minutes (or bake 8), until bubbling.',
+  ]),
+  r('chocolate-bark', 'Chocolate bark', '🍫', 15, ['t:sweets', 't:nuts', 't:cereal', 't:snack-bars', 't:chips', 'granola', 'raisins', 'dried fruit'], [
+    '200 g (7 oz) chocolate',
+    'Toppings: chopped candy bars, nuts, pretzels, cereal or dried fruit',
+    'A pinch of flaky salt',
+  ], [
+    'Line a tray with baking paper.',
+    'Melt the chocolate in short bursts in the microwave, stirring between each, or in a bowl over simmering water.',
+    'Spread it about ½ cm (¼ in) thick and scatter over the toppings and salt.',
+    'Chill 30 minutes until hard, then snap into pieces.',
+  ]),
+  r('hot-chocolate', 'Real hot chocolate', '☕', 10, ['t:sweets', 't:milk', 't:plant-milk', 't:cream', 'marshmallow'], [
+    '2 cups (500 ml) milk',
+    '60 g (2 oz) chocolate, chopped',
+    '1–2 tsp sugar (optional)',
+    'Whipped cream or marshmallows to serve',
+  ], [
+    'Warm the milk in a pan until steaming; don’t let it boil.',
+    'Take off the heat, add the chocolate and whisk until melted and frothy.',
+    'Sweeten to taste, pour into mugs and top with cream or marshmallows.',
+  ]),
+  r('icebox-cake', 'Cookie icebox cake', '🍰', 15, ['cookies', 't:cream', 'biscuits', 't:berries', 't:baked-goods'], [
+    '2 cups (480 ml) heavy cream',
+    '2 tbsp sugar and 1 tsp vanilla',
+    'About 30 crisp cookies or biscuits',
+    'Berries or grated chocolate to top',
+  ], [
+    'Whip the cream with the sugar and vanilla to soft peaks.',
+    'In a loaf pan or dish, layer cookies and cream, starting and ending with cream.',
+    'Cover and chill at least 6 hours, until the cookies soften into cake.',
+    'Top with berries or chocolate and slice.',
   ]),
 ];
 

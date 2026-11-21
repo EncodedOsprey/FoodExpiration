@@ -9,10 +9,12 @@ const IGNORED = new Set(
   ['Water', 'Salt', 'Pepper', 'Black Pepper', 'Oil', 'Boiling Water', 'Cold Water', 'Warm Water', 'Sea Salt', 'Kosher Salt']
     .map(normalizePhrase),
 );
-// Names TheMealDB uses interchangeably.
+// Names TheMealDB uses interchangeably, or that stand in for each other in a recipe.
 const SYNONYMS = [
   ['Minced Beef', 'Ground Beef'],
   ['Prawns', 'King Prawns'],
+  ['Jam', 'Raspberry Jam', 'Apricot Jam'],
+  ['Tomato Sauce', 'Passata'],
 ];
 
 // Common grocery words that TheMealDB knows under another name.
@@ -76,14 +78,15 @@ export function matchIngredient(text) {
 
 /**
  * Recipe ingredient for a product: from its name, its food type, then its categories.
- * For "Greek Yogurt Strawberry" (a yogurt) the yogurt beats the flavour.
+ * For "Greek Yogurt Strawberry" (a yogurt) the yogurt beats the flavour, and for flavoured
+ * foods such as "Nacho Cheese Doritos" other foods in the name are never used.
  */
 export function deriveIngredient({ name = '', categories = [] } = {}, type = null) {
   const matches = allMatches(tokenize(name), TERMS).map((m) => m.value);
-  if (matches.length) {
-    const sameType = type && matches.find((value) => classifyFood({ name: value }).type?.id === type.id);
-    return sameType || matches[0];
-  }
+  const sameType = type && matches.find((value) => classifyFood({ name: value }).type?.id === type.id);
+  if (sameType) return sameType;
+  if (type?.flavoured) return type.ingredient ?? '';
+  if (matches.length) return matches[0];
   if (type?.ingredient) return type.ingredient;
   for (const category of [...categories].reverse()) {
     const match = matchIngredient(category);

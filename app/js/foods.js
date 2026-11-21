@@ -11,25 +11,28 @@ export const LOCATIONS = [
   { id: 'other', label: 'Other' },
 ];
 
+// Extras: `ingredient` for recipe searches; `tags`, words to match built-in recipes;
+// `flavoured`, other foods in the name are flavours ("Honey Nut Cheerios" is no honey);
+// `snack`, a kind of snack the name can pin down when the categories only say "snacks".
 const t = (id, emoji, location, days, keywords, extra = {}) => ({ id, emoji, location, days, keywords, ...extra });
 
 export const FOOD_TYPES = [
   // Dairy & eggs
-  t('ice-cream', '🍨', 'freezer', { freezer: 60 }, ['ice cream', 'gelato', 'sorbet', 'frozen yogurt', 'popsicle'], { ingredient: 'Ice Cream' }),
-  t('plant-milk', '🥛', 'fridge', { fridge: 7, pantry: 180 }, ['almond milk', 'oat milk', 'soy milk', 'soya milk', 'rice milk', 'oat drink', 'almond drink', 'soy drink', 'plant based drink'], { ingredient: 'Almond Milk', tags: ['milk'] }),
+  t('ice-cream', '🍨', 'freezer', { freezer: 60 }, ['ice cream', 'gelato', 'sorbet', 'frozen yogurt', 'popsicle'], { ingredient: 'Ice Cream', flavoured: true }),
+  t('plant-milk', '🥛', 'fridge', { fridge: 7, pantry: 180 }, ['almond milk', 'oat milk', 'soy milk', 'soya milk', 'rice milk', 'cashew milk', 'oat drink', 'almond drink', 'soy drink', 'plant based drink', 'oat based drink', 'almond based drink', 'soy based drink', 'rice based drink', 'plant based milk', 'non dairy milk', 'dairy free milk'], { ingredient: 'Almond Milk', tags: ['milk'] }),
   t('coconut-milk', '🥥', 'pantry', { pantry: 365, fridge: 5 }, ['coconut milk', 'coconut cream'], { ingredient: 'Coconut Milk' }),
   t('milk', '🥛', 'fridge', { fridge: 7, freezer: 90 }, ['milk', 'whole milk', 'skim milk', 'semi skimmed milk', 'lactose free milk', 'chocolate milk', 'buttermilk', 'milks'], { ingredient: 'Milk', tags: ['milk'] }),
   t('cream', '🥛', 'fridge', { fridge: 10, freezer: 90 }, ['cream', 'heavy cream', 'whipping cream', 'double cream', 'single cream', 'half and half', 'creme fraiche', 'creamer'], { ingredient: 'Heavy Cream', tags: ['cream'] }),
   t('sour-cream', '🥣', 'fridge', { fridge: 14 }, ['sour cream'], { ingredient: 'Sour Cream', tags: ['sour cream'] }),
   t('cream-cheese', '🧀', 'fridge', { fridge: 14 }, ['cream cheese'], { ingredient: 'Cream Cheese', tags: ['cream cheese'] }),
-  t('yogurt', '🥣', 'fridge', { fridge: 14, freezer: 60 }, ['yogurt', 'yoghurt', 'yogourt', 'skyr', 'kefir'], { ingredient: 'Yogurt', tags: ['yogurt'] }),
+  t('yogurt', '🥣', 'fridge', { fridge: 14, freezer: 60 }, ['yogurt', 'yoghurt', 'yogourt', 'skyr', 'kefir'], { ingredient: 'Yogurt', tags: ['yogurt'], flavoured: true }),
   t('butter', '🧈', 'fridge', { fridge: 60, freezer: 270 }, ['butter', 'margarine'], { ingredient: 'Butter' }),
   t('soft-cheese', '🧀', 'fridge', { fridge: 7, freezer: 60 }, ['mozzarella', 'ricotta', 'brie', 'camembert', 'feta', 'goat cheese', 'goats cheese', 'cottage cheese', 'burrata', 'mascarpone', 'paneer', 'fresh cheese'], { ingredient: 'Cheese', tags: ['cheese'] }),
   t('cheese', '🧀', 'fridge', { fridge: 28, freezer: 180 }, ['cheese', 'cheddar', 'parmesan', 'parmigiano', 'gouda', 'swiss cheese', 'emmental', 'gruyere', 'monterey jack', 'colby', 'provolone', 'pecorino', 'manchego', 'havarti', 'halloumi', 'cheeses'], { ingredient: 'Cheese', tags: ['cheese'] }),
   t('eggs', '🥚', 'fridge', { fridge: 28 }, ['egg', 'eggs', 'egg whites'], { ingredient: 'Eggs', tags: ['egg'] }),
 
   // Meat, fish & protein
-  t('deli', '🥪', 'fridge', { fridge: 5, freezer: 60 }, ['ham', 'deli', 'sliced turkey', 'salami', 'pepperoni', 'prosciutto', 'bologna', 'pastrami', 'cold cuts', 'lunch meat', 'chorizo'], { ingredient: 'Ham', tags: ['ham'] }),
+  t('deli', '🥪', 'fridge', { fridge: 5, freezer: 60 }, ['ham', 'deli', 'sliced turkey', 'sliced turkey breast', 'turkey breast slices', 'turkey slices', 'chicken breast slices', 'sliced chicken', 'sliced ham', 'ham slices', 'deli meat', 'salami', 'pepperoni', 'prosciutto', 'bologna', 'pastrami', 'cold cuts', 'lunch meat', 'chorizo'], { ingredient: 'Ham', tags: ['ham'] }),
   t('bacon', '🥓', 'fridge', { fridge: 7, freezer: 30 }, ['bacon', 'pancetta'], { ingredient: 'Bacon' }),
   t('sausage', '🌭', 'fridge', { fridge: 7, freezer: 60 }, ['sausage', 'hot dog', 'frankfurter', 'bratwurst', 'kielbasa', 'wiener', 'sausages'], { ingredient: 'Sausages', tags: ['sausage'] }),
   t('ground-meat', '🥩', 'fridge', { fridge: 2, freezer: 120 }, ['ground beef', 'minced beef', 'mince', 'ground turkey', 'ground pork', 'ground chicken', 'ground meat', 'hamburger', 'burger patties', 'burgers'], { ingredient: 'Minced Beef', tags: ['ground beef'] }),
@@ -64,24 +67,32 @@ export const FOOD_TYPES = [
   // Bakery
   t('bread', '🍞', 'pantry', { pantry: 5, fridge: 10, freezer: 90 }, ['bread', 'loaf', 'baguette', 'rolls', 'buns', 'bagel', 'bagels', 'english muffins', 'pita', 'naan', 'sourdough', 'brioche', 'croissant', 'croissants', 'ciabatta', 'flatbread', 'breads'], { ingredient: 'Bread' }),
   t('tortillas', '🌮', 'pantry', { pantry: 14, fridge: 30, freezer: 180 }, ['tortilla', 'tortillas', 'wraps'], { ingredient: 'Tortillas', tags: ['tortilla'] }),
-  t('baked-goods', '🧁', 'pantry', { pantry: 4, freezer: 90 }, ['muffins', 'cake', 'cookies', 'pastries', 'donuts', 'doughnuts', 'pie', 'brownies', 'cakes', 'biscuits']),
+  t('baked-goods', '🧁', 'pantry', { pantry: 4, freezer: 90 }, ['muffins', 'cake', 'cookies', 'pastries', 'donuts', 'doughnuts', 'pie', 'brownies', 'cakes', 'biscuits'], { flavoured: true }),
 
   // Prepared & refrigerated
-  t('dips', '🥣', 'fridge', { fridge: 7 }, ['hummus', 'salsa', 'dip', 'guacamole', 'pesto', 'tzatziki']),
+  t('dips', '🥣', 'fridge', { fridge: 7 }, ['hummus', 'houmous', 'salsa', 'dip', 'guacamole', 'pesto', 'tzatziki'], { flavoured: true }),
   t('fresh-pasta', '🍝', 'fridge', { fridge: 5, freezer: 60 }, ['fresh pasta', 'ravioli', 'tortellini', 'gnocchi'], { tags: ['pasta'] }),
   t('leftovers', '🍲', 'fridge', { fridge: 4, freezer: 90 }, ['leftovers', 'leftover', 'meal prep', 'cooked rice']),
   t('soup', '🍲', 'pantry', { pantry: 365, fridge: 4 }, ['soup', 'broth', 'stock', 'soups']),
-  t('juice', '🧃', 'fridge', { fridge: 7 }, ['juice', 'orange juice', 'apple juice', 'lemonade', 'smoothie', 'juices']),
-  t('condiments', '🫙', 'pantry', { pantry: 365, fridge: 180 }, ['sauce', 'ketchup', 'mayonnaise', 'mayo', 'mustard', 'dressing', 'salad dressing', 'jam', 'jelly', 'pickles', 'relish', 'syrup', 'honey', 'peanut butter', 'spread', 'sauces', 'condiments']),
+  t('juice', '🧃', 'fridge', { fridge: 7 }, ['juice', 'orange juice', 'apple juice', 'lemonade', 'smoothie', 'juices'], { flavoured: true }),
+  t('pasta-sauce', '🥫', 'pantry', { pantry: 365, fridge: 5 }, ['pasta sauce', 'pasta sauces', 'tomato sauce', 'tomato sauces', 'marinara', 'pizza sauce', 'spaghetti sauce', 'arrabbiata', 'bolognese sauce', 'passata', 'pomodoro'], { ingredient: 'Tomato Sauce', flavoured: true }),
+  t('jam', '🍓', 'pantry', { pantry: 365, fridge: 180 }, ['jam', 'jams', 'jelly', 'preserves', 'fruit preserves', 'fruit spread', 'marmalade', 'conserve'], { ingredient: 'Jam', flavoured: true }),
+  t('nut-butter', '🥜', 'pantry', { pantry: 180 }, ['peanut butter', 'almond butter', 'cashew butter', 'nut butter', 'nut butters', 'peanut butters', 'sunflower butter', 'tahini'], { ingredient: 'Peanut Butter', flavoured: true }),
+  t('condiments', '🫙', 'pantry', { pantry: 365, fridge: 180 }, ['sauce', 'ketchup', 'mayonnaise', 'mayo', 'mustard', 'dressing', 'salad dressing', 'pickles', 'relish', 'syrup', 'honey', 'spread', 'sauces', 'condiments'], { flavoured: true }),
 
   // Pantry staples
   t('canned', '🥫', 'pantry', { pantry: 730, fridge: 4 }, ['canned', 'tinned', 'beans', 'chickpeas', 'lentils', 'tuna', 'sardines', 'baked beans', 'diced tomatoes', 'crushed tomatoes', 'tomato paste', 'tomato puree', 'canned foods']),
   t('pasta', '🍝', 'pantry', { pantry: 365 }, ['pasta', 'spaghetti', 'penne', 'macaroni', 'noodles', 'linguine', 'fusilli', 'lasagna', 'pastas'], { ingredient: 'Spaghetti', tags: ['pasta'] }),
-  t('grains', '🍚', 'pantry', { pantry: 365 }, ['rice', 'quinoa', 'oats', 'oatmeal', 'couscous', 'barley', 'flour', 'cereal', 'granola', 'cereals'], { ingredient: 'Rice' }),
-  t('snacks', '🍿', 'pantry', { pantry: 120 }, ['chips', 'crisps', 'crackers', 'pretzels', 'popcorn', 'candy', 'chocolate', 'nuts', 'almonds', 'peanuts', 'granola bars', 'snacks']),
+  t('grains', '🍚', 'pantry', { pantry: 365 }, ['rice', 'quinoa', 'oats', 'oatmeal', 'couscous', 'barley', 'flour'], { ingredient: 'Rice' }),
+  t('cereal', '🥣', 'pantry', { pantry: 180 }, ['cereal', 'cereals', 'breakfast cereal', 'granola', 'muesli', 'cornflakes', 'corn flakes', 'bran flakes', 'cheerios', 'rice krispies', 'puffed rice'], { flavoured: true, snack: true }),
+  t('snack-bars', '🌾', 'pantry', { pantry: 180 }, ['granola bars', 'granola bites', 'cereal bars', 'snack bars', 'protein bars', 'energy bars', 'breakfast bars', 'oat bars', 'nut bars', 'energy bites', 'protein bites', 'flapjack', 'flapjacks'], { flavoured: true, snack: true }),
+  t('chips', '🥨', 'pantry', { pantry: 90 }, ['chips', 'crisps', 'potato chips', 'potato crisps', 'tortilla chips', 'corn chips', 'pita chips', 'crackers', 'pretzels', 'popcorn', 'doritos', 'pringles', 'tostitos', 'fritos', 'cheetos'], { flavoured: true, snack: true }),
+  t('nuts', '🥜', 'pantry', { pantry: 180, fridge: 365, freezer: 365 }, ['nuts', 'mixed nuts', 'almonds', 'peanuts', 'cashews', 'cashew nuts', 'walnuts', 'pecans', 'pistachios', 'hazelnuts', 'macadamia', 'trail mix', 'sunflower seeds', 'pumpkin seeds'], { snack: true }),
+  t('sweets', '🍫', 'pantry', { pantry: 180 }, ['chocolate', 'chocolates', 'chocolate bar', 'dark chocolate', 'milk chocolate', 'chocolate chips', 'candy', 'candies', 'sweets', 'gummy', 'gummies', 'jelly beans', 'marshmallows', 'toffee', 'fudge', 'caramels', 'confectioneries'], { flavoured: true, snack: true }),
+  t('snacks', '🍿', 'pantry', { pantry: 120 }, ['snacks', 'snack', 'rice cakes'], { flavoured: true }),
   t('spices', '🧂', 'pantry', { pantry: 730 }, ['spice', 'spices', 'seasoning', 'salt', 'black pepper', 'cinnamon', 'paprika', 'cumin', 'sugar', 'baking soda', 'baking powder']),
   t('frozen', '🧊', 'freezer', { freezer: 180, fridge: 3 }, ['frozen', 'frozen meals', 'pizza', 'nuggets', 'fries', 'waffles', 'frozen vegetables', 'frozen peas', 'dumplings', 'burritos', 'frozen foods']),
-  t('drinks', '🥤', 'pantry', { pantry: 270, fridge: 30 }, ['soda', 'water', 'sparkling water', 'beer', 'wine', 'coffee', 'tea', 'kombucha', 'sodas']),
+  t('drinks', '🥤', 'pantry', { pantry: 270, fridge: 30 }, ['soda', 'water', 'sparkling water', 'beer', 'wine', 'coffee', 'tea', 'kombucha', 'sodas'], { flavoured: true }),
 ];
 
 const TERMS = compileTerms(FOOD_TYPES.flatMap((type) => type.keywords.map((text) => ({ text, value: type }))));
@@ -117,6 +128,11 @@ export function classifyFood({ name = '', categories = [] } = {}) {
     }
   }
   if (!type) type = bestMatch(tokenize(name), TERMS)?.value ?? null;
+  // "Snacks" is too broad when the name says which kind ("granola bites", "pretzels").
+  if (type?.id === 'snacks') {
+    const named = bestMatch(tokenize(name), TERMS)?.value;
+    if (named?.snack) type = named;
+  }
   if (canned && type?.id !== 'soup') type = TYPE_BY_ID.get('canned');
   return { type, frozen, canned, dried };
 }
@@ -139,7 +155,16 @@ export const emojiFor = (classification) => classification?.type?.emoji ?? '🛒
 
 /** Words used to match an item against built-in recipes. */
 export function itemTagTokens(item, type = foodTypeById(item.typeId)) {
-  const tokens = new Set([...tokenize(item.name), ...tokenize(item.ingredient)]);
+  const tokens = new Set([...nameTokens(item.name, type), ...tokenize(item.ingredient)]);
   for (const tag of type?.tags ?? []) for (const tok of tokenize(tag)) tokens.add(tok);
   return tokens;
+}
+
+// For flavoured foods only the words naming the food count ("granola" in "Oats & Honey
+// Granola"), so the flavours don't pull in recipes for honey or oats.
+function nameTokens(name, type) {
+  const tokens = tokenize(name);
+  if (!type?.flavoured) return tokens;
+  const head = bestMatch(tokens, TERMS);
+  return head ? tokens.slice(head.end - head.len, head.end) : [];
 }

@@ -140,6 +140,10 @@ export function prefetchRecipes(item) {
   return onlineRecipesFor(item).catch(() => null);
 }
 
+/** A web search for recipes that use the item up ("recipes using …", not how to make it). */
+export const webRecipeSearchUrl = (item) =>
+  `https://www.google.com/search?q=${encodeURIComponent(`recipes using ${String(item.name ?? '').trim()}`)}`;
+
 /** Up to three recipe names per item for notifications, from cached data only. */
 export async function recipeHints(items, { online = true } = {}) {
   const hints = {};

@@ -38,3 +38,14 @@ test('maps grocery names to recipe-database ingredients', () => {
   // Never broadens a vegetable into the seasoning "Pepper".
   assert.deepEqual(ingredientQueries('Red Pepper'), ['Red Pepper']);
 });
+
+test('packaged foods get their own kind, and flavours in the name are not the ingredient', () => {
+  // The name pins down the kind of snack when the categories only say "snacks".
+  assert.deepEqual(describe('Drizzled Granola Bites', ['en:snacks', 'en:sweet-snacks']), { type: 'snack-bars', location: 'pantry', days: 180, ingredient: '' });
+  assert.deepEqual(describe('Honey Nut Cheerios', ['en:breakfast-cereals']), { type: 'cereal', location: 'pantry', days: 180, ingredient: '' });
+  assert.deepEqual(describe('Nacho Cheese Doritos', ['en:snacks', 'en:corn-chips']), { type: 'chips', location: 'pantry', days: 90, ingredient: '' });
+  assert.deepEqual(describe('Strawberry Preserves', ['en:spreads', 'en:jams']), { type: 'jam', location: 'pantry', days: 365, ingredient: 'Jam' });
+  assert.equal(describe('Activia Strawberry', ['en:yogurts', 'en:fruit-yogurts']).ingredient, 'Yogurt');
+  assert.equal(describe('Oat Milk', ['en:plant-based-beverages', 'en:oat-based-drinks']).type, 'plant-milk');
+  assert.deepEqual(ingredientQueries('Jam'), ['Jam', 'Raspberry Jam', 'Apricot Jam']);
+});

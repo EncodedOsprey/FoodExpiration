@@ -17,7 +17,9 @@ It's an installable web app (PWA). It runs on iPhone, Android and desktop, works
   - By default: 1 week, 3 days and 1 day before, on the day, and the day after.
   - Other choices: 1 month, 2 weeks, 5 days and 2 days before. Pick any combination and the time of day.
 - **Recipe ideas with every alert.**
-  - Built-in recipes work offline. [TheMealDB](https://www.themealdb.com) adds recipes with photos.
+  - Built-in recipes work offline, including ideas for packaged foods such as cereal, snack bars, chips, nuts, chocolate, jam, nut butters and pasta sauce. [TheMealDB](https://www.themealdb.com) adds recipes with photos.
+  - Ideas match the food, not its flavour: Honey Nut Cheerios get cereal recipes, not honey ones.
+  - **More recipes online** on each item searches the web for recipes that use it.
   - The Recipes tab finds dishes that use up several expiring things at once.
   - Recipes tick off the ingredients you already have.
 - Mark food as used or tossed, snooze or dismiss an alert, and look back at your history.
