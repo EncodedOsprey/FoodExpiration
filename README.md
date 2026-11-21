@@ -48,6 +48,7 @@ It's an installable web app (PWA). It runs on iPhone, Android and desktop, works
 Good to know:
 - The camera needs HTTPS. GitHub Pages and `localhost` are fine.
 - Safari can clear website data that hasn't been used for 7 days. Adding the app to the Home Screen avoids that. Use **Settings → Back up** now and then.
+- On the iPhone Duo's outer screen, Safari keeps web pages out of the column with the clock and camera, so a strip of the app's background shows there. Apple's Safari team is working on letting pages use it.
 - Apple Calendar and Outlook keep the reminders in the calendar export. Google Calendar imports the dates but drops the reminders.
 
 ## Push server (optional)

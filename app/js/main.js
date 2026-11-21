@@ -7,6 +7,7 @@ import { initInstallPrompt, isStandalone } from './platform.js';
 import { loadSettings } from './settings.js';
 import { loadItems } from './store.js';
 import { $, $$, html, icon, mount, toast } from './ui.js';
+import { checkViewportSoon, initViewportFix } from './viewport.js';
 import * as alertsView from './views/alerts.js';
 import * as editView from './views/edit.js';
 import * as itemView from './views/item.js';
@@ -133,6 +134,7 @@ async function show(where, { keepScroll = false } = {}) {
   }
   current.cleanup = typeof cleanup === 'function' ? cleanup : null;
   if (keepScroll) window.scrollTo(0, scrollY);
+  checkViewportSoon();
 }
 
 let redrawTimer = 0;
@@ -213,6 +215,7 @@ async function registerServiceWorker() {
 async function start() {
   renderTabbar();
   imageFallbacks();
+  initViewportFix();
   initInstallPrompt();
   try {
     await Promise.all([loadSettings(), loadItems()]);
