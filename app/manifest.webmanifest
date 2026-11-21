@@ -1,0 +1,33 @@
+{
+  "name": "Pantry Pal – Food Expiration Tracker",
+  "short_name": "Pantry Pal",
+  "description": "Scan your groceries, track expiration dates and get alerts with recipe ideas before food goes to waste.",
+  "id": "./",
+  "start_url": "./#/pantry",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f6f2",
+  "theme_color": "#0f766e",
+  "categories": ["food", "lifestyle", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Scan an item",
+      "short_name": "Scan",
+      "url": "./#/scan",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Expiring soon",
+      "short_name": "Alerts",
+      "url": "./#/alerts",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

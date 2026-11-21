@@ -1,0 +1,18 @@
+{
+  "name": "pantry-pal-push-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Optional push server for Pantry Pal: delivers expiry alerts while the app is closed.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test \"test/*.test.js\""
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "web-push": "^4.0.0"
+  }
+}
