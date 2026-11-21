@@ -105,10 +105,20 @@ async function shot(name) {
   await page.waitForTimeout(250); // let images and transitions settle
   await page.screenshot({ path: join(SHOTS, `${String(++shotCount).padStart(2, '0')}-${name}.png`) });
 }
+/** iOS zooms out to fit anything wider than the screen, which shrinks the whole app. */
+async function assertFitsScreen() {
+  const { scrollWidth, clientWidth, hash } = await page.evaluate(() => ({
+    scrollWidth: document.documentElement.scrollWidth,
+    clientWidth: document.documentElement.clientWidth,
+    hash: location.hash,
+  }));
+  assert.ok(scrollWidth <= clientWidth, `${hash || '#/pantry'} is ${scrollWidth}px wide on a ${clientWidth}px screen`);
+}
 async function step(name, fn) {
   const started = Date.now();
   try {
     await fn();
+    await assertFitsScreen();
     console.log(`  ✔ ${name} (${Date.now() - started} ms)`);
   } catch (err) {
     console.log(`  ✘ ${name}`);

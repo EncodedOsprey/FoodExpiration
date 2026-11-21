@@ -149,8 +149,8 @@ export function render(el, { params, query, signal }) {
         return ['ok', `Based on last time you bought this (${remembered?.shelfDays} days). Check the package.`];
       case 'estimate': {
         const where = LOCATIONS.find((l) => l.id === state.location)?.label.toLowerCase();
-        const what = type ? typeLabel(type).toLowerCase() : 'this';
-        return ['warn', `Estimate: ${what} usually keeps about ${daysBetween(state.purchaseDate || today, state.expiryDate)} days in the ${where}. Check the package date.`];
+        const typical = type ? ` (typical for ${typeLabel(type).toLowerCase()})` : '';
+        return ['warn', `Estimate: about ${daysBetween(state.purchaseDate || today, state.expiryDate)} days in the ${where}${typical}. Check the package date.`];
       }
       default:
         if (!state.expiryDate) return ['', 'Enter the date printed on the package, or pick a quick option.'];
